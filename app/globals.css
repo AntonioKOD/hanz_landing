@@ -1,26 +1,188 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Dark mode utility */
+@custom-variant dark (&:is(.dark *));
 
+/* Map Tailwind design tokens to CSS variables */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-destructive: var(--destructive);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Charts */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Radii */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ---------- Light theme (default) ---------- */
+:root {
+  /* Brand palette */
+  --brand-pink: #ff66cc;
+  --brand-yellow: #fbdf0e;
+  --brand-green: #1db954;
+  --brand-blue: #3c71f7;
+  --brand-cyan-50: #e0f7fa;
+  --brand-gray-50: #f2f2f1;
+
+  /* Base tokens */
+  --radius: 0.625rem;
+
+  --background: #ffffff;
+  --foreground: #111213;
+
+  --card: #ffffff;
+  --card-foreground: #111213;
+
+  --popover: #ffffff;
+  --popover-foreground: #111213;
+
+  /* Choose BLUE as primary; PINK as accent */
+  --primary: var(--brand-blue);
+  --primary-foreground: #ffffff;
+
+  --secondary: var(--brand-gray-50);
+  --secondary-foreground: #111213;
+
+  --muted: var(--brand-gray-50);
+  --muted-foreground: #555b61;
+
+  --accent: var(--brand-pink);
+  --accent-foreground: #ffffff;
+
+  /* Status-ish tokens (optional but handy) */
+  --destructive: #e11d48; /* rose-600 */
+  --success: var(--brand-green);
+  --warning: var(--brand-yellow);
+  --info: var(--brand-cyan-50);
+
+  /* Surfaces & outlines */
+  --border: #e6e7e9;
+  --input: #e6e7e9;
+  --ring: #c7cbd4;
+
+  /* Charts (ordered for contrast in series) */
+  --chart-1: var(--brand-blue);
+  --chart-2: var(--brand-pink);
+  --chart-3: var(--brand-green);
+  --chart-4: var(--brand-yellow);
+  --chart-5: #7aa7ff; /* blue-300-ish to diversify */
+
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #111213;
+  --sidebar-primary: var(--brand-blue);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--brand-pink);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #eceef1;
+  --sidebar-ring: #c7cbd4;
+}
+
+/* ---------- Dark theme ---------- */
+.dark {
+  --background: #0f1115;
+  --foreground: #f7f8fa;
+
+  --card: #151821;
+  --card-foreground: #f7f8fa;
+
+  --popover: #151821;
+  --popover-foreground: #f7f8fa;
+
+  --primary: #7ea6ff; /* lighter blue for dark bg */
+  --primary-foreground: #0b0e13;
+
+  --secondary: #1a1f2a;
+  --secondary-foreground: #e8eaf0;
+
+  --muted: #1a1f2a;
+  --muted-foreground: #a6adbb;
+
+  --accent: #ff8ad9; /* lighten pink for dark bg pop */
+  --accent-foreground: #150b12;
+
+  --destructive: #f43f5e;
+
+  --border: #2a3040;
+  --input: #2a3040;
+  --ring: #55607a;
+
+  --chart-1: #7ea6ff;   /* blue */
+  --chart-2: #ff8ad9;   /* pink */
+  --chart-3: #49e07d;   /* green tint for dark */
+  --chart-4: #ffe158;   /* yellow */
+  --chart-5: #64d8ea;   /* cyan */
+
+  --sidebar: #151821;
+  --sidebar-foreground: #f7f8fa;
+  --sidebar-primary: #7ea6ff;
+  --sidebar-primary-foreground: #0b0e13;
+  --sidebar-accent: #ff8ad9;
+  --sidebar-accent-foreground: #150b12;
+  --sidebar-border: #242a39;
+  --sidebar-ring: #55607a;
+}
+
+/* ---------- Base layer ---------- */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
+  body {
+    @apply bg-background text-foreground;
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Optional: set CSS color-scheme to help native form controls */
+  :root {
+    color-scheme: light;
+  }
+  .dark {
+    color-scheme: dark;
+  }
 }
