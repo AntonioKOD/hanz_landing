@@ -10,31 +10,26 @@ import {
 export function FeaturesSectionWithHoverEffects() {
   const features = [
     {
-      title: "Mehr Sichtbarkeit bei Kunden",
+      title: "Anmelden und Profil erstellen",
       description:
-        "Erreichen Sie neue Kunden in Ihrer Region durch unsere Plattform.",
+        "Einfach Kontaktdaten eintragen, Profil erstellen und Nachweise hochladen.",
       icon: <IconEye />,
     },
     {
-      title: "Schnelle Auftragsvermittlung",
+      title: "Kundenanfragen erhalten",
       description:
-        "Erhalten Sie qualifizierte Anfragen direkt und ohne Umwege.",
+        "Nach Freischaltung erhalten Sie passende und geprüfte Kundenanfragen aus Ihrer Region.",
       icon: <IconBolt />,
     },
     {
-      title: "Einfache Verwaltung",
+      title: "Details klären",
       description:
-        "Verwalten Sie Ihre Aufträge und Kommunikation zentral an einem Ort.",
+        "Klären Sie Auftragsdetails mit Kunden direkt im Chat und gewinnen Sie diese für sich.",
       icon: <IconShield />,
     },
-    {
-      title: "Sicheres Bezahlsystem",
-      description: "Garantierte Zahlungen über unser vertrauensvolles System.",
-      icon: <IconCreditCard />,
-    }
   ];
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  relative z-10 py-10 max-w-7xl mx-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative z-10 py-10 max-w-7xl mx-auto">
       {features.map((feature, index) => (
         <Feature key={feature.title} {...feature} index={index} />
       ))}
