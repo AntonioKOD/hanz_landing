@@ -80,7 +80,7 @@ const categories = [
 
 export default function Landing(){
     return(
-        <div className="container mx-auto text-center py-20">
+        <div className="container mx-auto text-center py-20 font-quicksand">
             <Image src={logo} alt="Hanz Logo"className="mx-auto mb-4 " />
             <h1 className="text-6xl font-bold">Dein digitaler Zugang</h1>
             <p className="text-primary font-bold text-6xl">zu neuen Kunden</p>
