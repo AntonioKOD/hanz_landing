@@ -18,14 +18,12 @@ import { cn } from "@/lib/utils";
 
 const schema = z.object({
   companyName: z.string().min(2, "Erforderlich"),
-  fullName: z.string().min(2, "Erforderlich"),
+  firstName: z.string().min(2, "Erforderlich"),
+  lastName: z.string().min(2, "Erforderlich"),
   email: z.string().email("Ungültige E-Mail"),
-  phone: z.string().min(6, "Erforderlich"),
-  serviceArea: z.string().min(2, "Erforderlich"),          
-  serviceType: z.string().min(2, "Erforderlich"),          
-  regionCity: z.string().min(2, "Erforderlich"),           
   website: z.string().url("Ungültige URL").optional().or(z.literal("")),
-  companySize: z.enum(["solo","2-5","6-20","21-50","51+"]).describe("Bitte auswählen"),
+  postalCode: z.string().min(2, "Erforderlich"),
+  serviceType: z.enum(["sanitär","elektrik","umzug","reinigung","garten","sonstiges"]).describe("Bitte auswählen"),
   heardFrom: z.enum(["google","tiktok","instagram","friend","reddit","other"]).describe("Bitte auswählen"),
 });
 
@@ -38,14 +36,12 @@ export function ProviderPreRegisterForm({
     resolver: zodResolver(schema),
     defaultValues: {
       companyName: "",
-      fullName: "",
+      firstName: "",
+      lastName: "",
       email: "",
-      phone: "",
-      serviceArea: "",
-      serviceType: "",
-      regionCity: "",
       website: "",
-      companySize: undefined as any,
+      postalCode: "",
+      serviceType: undefined as any,
       heardFrom: undefined as any,
     },
   });
@@ -82,18 +78,7 @@ export function ProviderPreRegisterForm({
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Firmenname</FormLabel>
-                  <FormControl><Input placeholder="z. B. Hanz Handwerk GmbH" {...field} className="border-amber-200 border-4" /></FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="fullName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Vor- und Nachname</FormLabel>
-                  <FormControl><Input placeholder="Max Mustermann" {...field} /></FormControl>
+                  <FormControl><Input placeholder="z. B. Hanz Handwerk GmbH" {...field} className="border-amber-200 border-4 focus:border-amber-200 focus:ring-0 focus-visible:border-amber-200 focus-visible:ring-0" /></FormControl>
                   <FormMessage />
                 </FormItem>
               )}
@@ -101,130 +86,125 @@ export function ProviderPreRegisterForm({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <FormField
                 control={form.control}
-                name="email"
+                name="firstName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>E-Mail-Adresse</FormLabel>
-                    <FormControl><Input type="email" placeholder="sie@firma.de" {...field} /></FormControl>
+                    <FormLabel>Vorname</FormLabel>
+                    <FormControl><Input placeholder="Max" {...field} className="border-amber-200 border-4 focus:border-amber-200 focus:ring-0 focus-visible:border-amber-200 focus-visible:ring-0" /></FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               <FormField
                 control={form.control}
-                name="phone"
+                name="lastName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Telefonnummer</FormLabel>
-                    <FormControl><Input type="tel" placeholder="+49 ..." {...field} /></FormControl>
+                    <FormLabel>Name</FormLabel>
+                    <FormControl><Input placeholder="Mustermann" {...field} className="border-amber-200 border-4 focus:border-amber-200 focus:ring-0 focus-visible:border-amber-200 focus-visible:ring-0" /></FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
             </div>
-
             <FormField
               control={form.control}
-              name="serviceArea"
+              name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Arbeitsgebiet</FormLabel>
-                  <FormControl><Input placeholder="Berlin, Brandenburg…" {...field} /></FormControl>
+                  <FormLabel>E-Mail-Adresse</FormLabel>
+                  <FormControl><Input type="email" placeholder="sie@firma.de" {...field} className="border-amber-200 border-4 focus:border-amber-200 focus:ring-0 focus-visible:border-amber-200 focus-visible:ring-0" /></FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <FormField
-                control={form.control}
-                name="serviceType"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Dienstleistungsbereich</FormLabel>
-                    <FormControl><Input placeholder="Sanitär, Elektrik, Umzug…" {...field} /></FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="regionCity"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Region / Stadt der Tätigkeit</FormLabel>
-                    <FormControl><Input placeholder="z. B. Neukölln, Mitte…" {...field} /></FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
 
             <FormField
               control={form.control}
               name="website"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Website (optional)</FormLabel>
-                  <FormControl><Input placeholder="https://…" {...field} /></FormControl>
+                  <FormLabel>Website URL</FormLabel>
+                  <FormControl><Input placeholder="https://…" {...field} className="border-amber-200 border-4 focus:border-amber-200 focus:ring-0 focus-visible:border-amber-200 focus-visible:ring-0" /></FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <FormField
-                control={form.control}
-                name="companySize"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Firmengröße</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger><SelectValue placeholder="Bitte auswählen…" /></SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="solo">Einzeln</SelectItem>
-                        <SelectItem value="2-5">2–5</SelectItem>
-                        <SelectItem value="6-20">6–20</SelectItem>
-                        <SelectItem value="21-50">21–50</SelectItem>
-                        <SelectItem value="51+">51+</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="heardFrom"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Wie haben Sie von uns erfahren?</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger><SelectValue placeholder="Bitte auswählen…" /></SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="google">Google</SelectItem>
-                        <SelectItem value="tiktok">TikTok</SelectItem>
-                        <SelectItem value="instagram">Instagram</SelectItem>
-                        <SelectItem value="friend">Freunde / Empfehlung</SelectItem>
-                        <SelectItem value="reddit">Reddit</SelectItem>
-                        <SelectItem value="other">Sonstiges</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
+            <FormField
+              control={form.control}
+              name="postalCode"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>PLZ deines Unternehmens bzw. deines Wohnorts</FormLabel>
+                  <FormControl><Input placeholder="12345" {...field} className="border-amber-200 border-4 focus:border-amber-200 focus:ring-0 focus-visible:border-amber-200 focus-visible:ring-0" /></FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="serviceType"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Dienstleistung (Mehrfachauswahl möglich)</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger className="border-amber-200/60 border-4 focus:border-amber-200/60 focus:ring-0 focus-visible:border-amber-200/60 focus-visible:ring-0"><SelectValue placeholder="Bitte auswählen…" /></SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="sanitär">Sanitär</SelectItem>
+                      <SelectItem value="elektrik">Elektrik</SelectItem>
+                      <SelectItem value="umzug">Umzug</SelectItem>
+                      <SelectItem value="reinigung">Reinigung</SelectItem>
+                      <SelectItem value="garten">Garten</SelectItem>
+                      <SelectItem value="sonstiges">Sonstiges</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="heardFrom"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Wie hast du von Hanz erfahren?</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger className="border-amber-200/60 border-4 focus:border-amber-200/60 focus:ring-0 focus-visible:border-amber-200/60 focus-visible:ring-0"><SelectValue placeholder="Bitte auswählen…" /></SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="google">Google</SelectItem>
+                      <SelectItem value="tiktok">TikTok</SelectItem>
+                      <SelectItem value="instagram">Instagram</SelectItem>
+                      <SelectItem value="friend">Freunde / Empfehlung</SelectItem>
+                      <SelectItem value="reddit">Reddit</SelectItem>
+                      <SelectItem value="other">Sonstiges</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
             <Button
               type="submit"
               className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              Jetzt vorregistrieren
+              Jetzt kostenlos voranmelden!
             </Button>
+            
+            <p className="text-sm text-muted-foreground text-center mt-4">
+              Mit Absenden deiner Daten stimmst du den{" "}
+              <a href="#" className="text-primary hover:underline">AGB</a>{" "}
+              und{" "}
+              <a href="#" className="text-primary hover:underline">Datenschutzbestimmungen</a>{" "}
+              von Hanz zu. Bei Hanz bist du sicher: Wir behandeln deine Daten 100% vertraulich.
+            </p>
           </form>
         </Form>
       </CardContent>

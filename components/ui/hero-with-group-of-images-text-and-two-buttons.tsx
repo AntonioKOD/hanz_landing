@@ -1,5 +1,5 @@
 
-import logo from '@/public/Logo hanz.svg'
+import logo from '@/public/logo (h).svg'
 import Image from "next/image";
 import { ProviderPreRegisterForm } from "../register-form";
 
