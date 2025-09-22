@@ -65,20 +65,20 @@ export function ProviderPreRegisterForm({
   return (
     <div>
     <Card className={cn("bg-card border-border text-card-foreground shadow-sm", className)}>
-      <div className="p-4 text-center">
-      <h1 className="text-4xl font-bold">Sichere dir deinen Platz auf Hanz!</h1>
-      <p className="text-muted-foreground">Sei bei den Ersten, die Aufträge erhalten! Und zahle keinerlei Gebühren in den ersten 3 Monaten ab Start von Hanz. Garantiert!</p>
+      <div className="p-3 sm:p-4 text-center">
+      <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">Sichere dir deinen Platz auf Hanz!</h1>
+      <p className="text-muted-foreground text-sm sm:text-base">Sei bei den Ersten, die Aufträge erhalten! Und zahle keinerlei Gebühren in den ersten 3 Monaten ab Start von Hanz. Garantiert!</p>
       </div>
-      <CardContent className="p-4 sm:p-6">
+      <CardContent className="p-3 sm:p-4 lg:p-6">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3 sm:space-y-4">
             <FormField
               control={form.control}
               name="companyName"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Firmenname</FormLabel>
-                  <FormControl><Input placeholder="z. B. Hanz Handwerk GmbH" {...field} className="border-amber-200 border-4 focus:border-amber-200 focus:ring-0 focus-visible:border-amber-200 focus-visible:ring-0" /></FormControl>
+                  <FormControl><Input placeholder="z. B. Hanz Handwerk GmbH" {...field} className="border-amber-200 border-4 focus:border-amber-300 focus:ring-0 focus-visible:border-amber-300 focus-visible:ring-0 transition-all duration-300 ease-in-out" /></FormControl>
                   <FormMessage />
                 </FormItem>
               )}
@@ -90,7 +90,7 @@ export function ProviderPreRegisterForm({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Vorname</FormLabel>
-                    <FormControl><Input placeholder="Max" {...field} className="border-amber-200 border-4 focus:border-amber-200 focus:ring-0 focus-visible:border-amber-200 focus-visible:ring-0" /></FormControl>
+                    <FormControl><Input placeholder="Max" {...field} className="border-amber-200 border-4 focus:border-amber-300 focus:ring-0 focus-visible:border-amber-300 focus-visible:ring-0 transition-all duration-300 ease-in-out" /></FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -101,7 +101,7 @@ export function ProviderPreRegisterForm({
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Name</FormLabel>
-                    <FormControl><Input placeholder="Mustermann" {...field} className="border-amber-200 border-4 focus:border-amber-200 focus:ring-0 focus-visible:border-amber-200 focus-visible:ring-0" /></FormControl>
+                    <FormControl><Input placeholder="Mustermann" {...field} className="border-amber-200 border-4 focus:border-amber-300 focus:ring-0 focus-visible:border-amber-300 focus-visible:ring-0 transition-all duration-300 ease-in-out" /></FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -113,7 +113,7 @@ export function ProviderPreRegisterForm({
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>E-Mail-Adresse</FormLabel>
-                  <FormControl><Input type="email" placeholder="sie@firma.de" {...field} className="border-amber-200 border-4 focus:border-amber-200 focus:ring-0 focus-visible:border-amber-200 focus-visible:ring-0" /></FormControl>
+                  <FormControl><Input type="email" placeholder="sie@firma.de" {...field} className="border-amber-200 border-4 focus:border-amber-300 focus:ring-0 focus-visible:border-amber-300 focus-visible:ring-0 transition-all duration-300 ease-in-out" /></FormControl>
                   <FormMessage />
                 </FormItem>
               )}
@@ -125,7 +125,7 @@ export function ProviderPreRegisterForm({
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Website URL</FormLabel>
-                  <FormControl><Input placeholder="https://…" {...field} className="border-amber-200 border-4 focus:border-amber-200 focus:ring-0 focus-visible:border-amber-200 focus-visible:ring-0" /></FormControl>
+                  <FormControl><Input placeholder="https://…" {...field} className="border-amber-200 border-4 focus:border-amber-300 focus:ring-0 focus-visible:border-amber-300 focus-visible:ring-0 transition-all duration-300 ease-in-out" /></FormControl>
                   <FormMessage />
                 </FormItem>
               )}
@@ -137,7 +137,7 @@ export function ProviderPreRegisterForm({
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>PLZ deines Unternehmens bzw. deines Wohnorts</FormLabel>
-                  <FormControl><Input placeholder="12345" {...field} className="border-amber-200 border-4 focus:border-amber-200 focus:ring-0 focus-visible:border-amber-200 focus-visible:ring-0" /></FormControl>
+                  <FormControl><Input placeholder="12345" {...field} className="border-amber-200 border-4 focus:border-amber-300 focus:ring-0 focus-visible:border-amber-300 focus-visible:ring-0 transition-all duration-300 ease-in-out" /></FormControl>
                   <FormMessage />
                 </FormItem>
               )}
@@ -151,7 +151,7 @@ export function ProviderPreRegisterForm({
                   <FormLabel>Dienstleistung (Mehrfachauswahl möglich)</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger className="border-amber-200/60 border-4 focus:border-amber-200/60 focus:ring-0 focus-visible:border-amber-200/60 focus-visible:ring-0"><SelectValue placeholder="Bitte auswählen…" /></SelectTrigger>
+                      <SelectTrigger className="border-amber-200/60 border-4 focus:border-amber-300 focus:ring-0 focus-visible:border-amber-300 focus-visible:ring-0 transition-all duration-300 ease-in-out"><SelectValue placeholder="Bitte auswählen…" /></SelectTrigger>
                     </FormControl>
                     <SelectContent>
                       <SelectItem value="sanitär">Sanitär</SelectItem>
@@ -175,7 +175,7 @@ export function ProviderPreRegisterForm({
                   <FormLabel>Wie hast du von Hanz erfahren?</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger className="border-amber-200/60 border-4 focus:border-amber-200/60 focus:ring-0 focus-visible:border-amber-200/60 focus-visible:ring-0"><SelectValue placeholder="Bitte auswählen…" /></SelectTrigger>
+                      <SelectTrigger className="border-amber-200/60 border-4 focus:border-amber-300 focus:ring-0 focus-visible:border-amber-300 focus-visible:ring-0 transition-all duration-300 ease-in-out"><SelectValue placeholder="Bitte auswählen…" /></SelectTrigger>
                     </FormControl>
                     <SelectContent>
                       <SelectItem value="google">Google</SelectItem>
@@ -193,12 +193,12 @@ export function ProviderPreRegisterForm({
 
             <Button
               type="submit"
-              className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+              className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-sm sm:text-base py-3 sm:py-4"
             >
               Jetzt kostenlos voranmelden!
             </Button>
             
-            <p className="text-sm text-muted-foreground text-center mt-4">
+            <p className="text-xs sm:text-sm text-muted-foreground text-center mt-4 px-2">
               Mit Absenden deiner Daten stimmst du den{" "}
               <a href="#" className="text-primary hover:underline">AGB</a>{" "}
               und{" "}

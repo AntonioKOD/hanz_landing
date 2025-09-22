@@ -80,49 +80,49 @@ const categories = [
 
 export default function Landing(){
     return(
-        <div className="container mx-auto text-center py-20 font-quicksand">
-            <h1 className="text-6xl font-bold">Dein digitaler Zugang</h1>
-            <p className="text-primary font-bold text-6xl">zu neuen Kunden</p>
-            <p className="text-lg text-muted-foreground mt-4">Registriere dich als Service-Dienstleister und gewinne mehr Aufträge - <span className="font-bold">schnell, sicher und unkompliziert.</span></p>
-            <Link href='/form'><Button size="lg" className="mt-8 text-lg px-8 py-4 h-auto">Jetzt kostenlos registrieren</Button></Link>
+        <div className="container mx-auto text-center py-8 sm:py-12 lg:py-20 font-quicksand px-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">Dein digitaler Zugang</h1>
+            <p className="text-primary font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">zu neuen Kunden</p>
+            <p className="text-base sm:text-lg text-muted-foreground mt-4 max-w-2xl mx-auto px-4">Registriere dich als Service-Dienstleister und gewinne mehr Aufträge - <span className="font-bold">schnell, sicher und unkompliziert.</span></p>
+            <Link href='/form'><Button size="lg" className="mt-6 sm:mt-8 text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 h-auto w-full sm:w-auto">Jetzt kostenlos registrieren</Button></Link>
             
-            <div>
-                <Badge className="mt-10 bg-muted-foreground/20 gap-1 text-black"><Check className="text-black" size={16} /> Kostenlose Registrierung • <Check className="text-black " size={16} /> Keine versteckten Kosten</Badge>
+            <div className="mt-6 sm:mt-10 px-4">
+                <Badge className="bg-muted-foreground/20 gap-1 text-black text-xs sm:text-sm px-3 py-2"><Check className="text-black" size={14} /> Kostenlose Registrierung • <Check className="text-black " size={14} /> Keine versteckten Kosten</Badge>
             </div>
 
-            <div className="mt-20 space-y-4">
-                <h2 className="font-bold text-3xl">Warum hanz.io?</h2>
-                <p className="text-muted-foreground">Profitieren Sie von unserer Plattform und wachsen Sie nachhaltig.</p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-                    <div>
-                <p className="text-5xl text-[#fbdf0e]"><NumberTicker  value={100} className="text-6xl font-bold text-warning"/>%</p>
-                <p className="text-muted-foreground text-3xl">Mehr Sichtbarkeit</p>
+            <div className="mt-12 sm:mt-16 lg:mt-20 space-y-4 px-4">
+                <h2 className="font-bold text-2xl sm:text-3xl">Warum hanz.io?</h2>
+                <p className="text-muted-foreground text-sm sm:text-base">Profitieren Sie von unserer Plattform und wachsen Sie nachhaltig.</p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mt-8 sm:mt-10">
+                    <div className="text-center">
+                <p className="text-3xl sm:text-4xl lg:text-5xl text-[#fbdf0e]"><NumberTicker  value={100} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-warning"/>%</p>
+                <p className="text-muted-foreground text-lg sm:text-xl lg:text-2xl">Mehr Sichtbarkeit</p>
 </div>
-                <div>
-                <p className="text-5xl text-[#fbdf0e]"><NumberTicker  value={100} className="text-6xl font-bold text-warning"/>%</p>
-                <p className="text-muted-foreground text-3xl">Weniger Aufwand</p>
+                <div className="text-center">
+                <p className="text-3xl sm:text-4xl lg:text-5xl text-[#fbdf0e]"><NumberTicker  value={100} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-warning"/>%</p>
+                <p className="text-muted-foreground text-lg sm:text-xl lg:text-2xl">Weniger Aufwand</p>
 </div>
-                <div>
-                <p className="text-5xl text-[#fbdf0e]"><NumberTicker  value={100} direction="down" className="text-6xl font-bold text-warning"/>%</p>
-                <p className="text-muted-foreground text-3xl">Kosten-risiko</p>
+                <div className="text-center">
+                <p className="text-3xl sm:text-4xl lg:text-5xl text-[#fbdf0e]"><NumberTicker  value={100} direction="down" className="text-4xl sm:text-5xl lg:text-6xl font-bold text-warning"/>%</p>
+                <p className="text-muted-foreground text-lg sm:text-xl lg:text-2xl">Kosten-risiko</p>
                 </div>
             </div>
         </div>
-        <div className="mt-12 bg-muted-foreground/10 p-10 rounded-lg">
-            <h1 className="text-4xl font-bold">Kundenstimmen</h1>
+        <div className="mt-8 sm:mt-12 bg-muted-foreground/10 p-4 sm:p-6 lg:p-10 rounded-lg mx-4 sm:mx-0">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center">Kundenstimmen</h1>
             <StaggerTestimonials/>
         </div>
 
-        <div>
-            <h3 className="text-4xl  font-bold mt-4">
+        <div className="px-4 sm:px-0">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mt-8 sm:mt-12 text-center">
                 In 3 Schritten zu neuen Kunden
             </h3>
             <FeaturesSectionWithHoverEffects/>
         
     </div>
-    <div>
-        <h3 className="text-4xl  font-bold mt-4">Dienstleistungs-Kategorien</h3>
-        <p className="text-muted-foreground">In welchem Bereich sind Sie tätig? Wir verbinden Sie mit den richtigen Kunden.</p>
+    <div className="px-4 sm:px-0">
+        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mt-8 sm:mt-12 text-center">Dienstleistungs-Kategorien</h3>
+        <p className="text-muted-foreground text-center text-sm sm:text-base">In welchem Bereich sind Sie tätig? Wir verbinden Sie mit den richtigen Kunden.</p>
         <HoverEffect items={categories}/>
     </div>
         </div>
