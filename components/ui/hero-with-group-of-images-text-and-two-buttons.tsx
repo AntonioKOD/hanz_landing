@@ -2,7 +2,6 @@
 import logo from '@/public/Logo hanz.svg'
 import Image from "next/image";
 import { ProviderPreRegisterForm } from "../register-form";
-import { Badge } from 'lucide-react';
 
 function Form() {
   return (

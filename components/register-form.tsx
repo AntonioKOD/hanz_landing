@@ -67,7 +67,12 @@ export function ProviderPreRegisterForm({
   };
 
   return (
+    <div>
     <Card className={cn("bg-card border-border text-card-foreground shadow-sm", className)}>
+      <div className="p-4 text-center">
+      <h1 className="text-4xl font-bold">Sichere dir deinen Platz auf Hanz!</h1>
+      <p className="text-muted-foreground">Sei bei den Ersten, die Aufträge erhalten! Und zahle keinerlei Gebühren in den ersten 3 Monaten ab Start von Hanz. Garantiert!</p>
+      </div>
       <CardContent className="p-4 sm:p-6">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3">
@@ -77,7 +82,7 @@ export function ProviderPreRegisterForm({
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Firmenname</FormLabel>
-                  <FormControl><Input placeholder="z. B. Hanz Handwerk GmbH" {...field} /></FormControl>
+                  <FormControl><Input placeholder="z. B. Hanz Handwerk GmbH" {...field} className="border-amber-200 border-4" /></FormControl>
                   <FormMessage />
                 </FormItem>
               )}
@@ -224,5 +229,6 @@ export function ProviderPreRegisterForm({
         </Form>
       </CardContent>
     </Card>
+    </div>
   );
 }

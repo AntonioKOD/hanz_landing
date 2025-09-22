@@ -2,7 +2,9 @@ import { Form } from "@/components/ui/hero-with-group-of-images-text-and-two-but
 
 export default function Page() {
     return (
+        <div className='p-6'>
         <Form />
+        </div>
     );
     }
     
