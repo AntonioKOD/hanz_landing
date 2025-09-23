@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Quicksand } from "next/font/google";
+import { FloatingChatButton } from "@/components/chatbot/floating-chat-button";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -19,11 +20,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="de">
       <body
         className={`${quicksand.variable} antialiased font-sans`}
       >
         {children}
+        <FloatingChatButton />
       </body>
     </html>
   );

@@ -10,21 +10,21 @@ import {
 export function FeaturesSectionWithHoverEffects() {
   const features = [
     {
-      title: "Anmelden und Profil erstellen",
+      title: "Anmelden & Profil erstellen",
       description:
-        "Einfach Kontaktdaten eintragen, Profil erstellen und Nachweise hochladen.",
+        "Registriere dich Kostenlos & erstelle dein professionelles Diensteleister-Profil mit wenigen Klicks.",
       icon: <IconEye />,
     },
     {
       title: "Kundenanfragen erhalten",
       description:
-        "Nach Freischaltung erhalten Sie passende und geprüfte Kundenanfragen aus Ihrer Region.",
+        "Erhalte automatisch passende Kundenanfragen basierend auf deinem Standort und deinen Dienstleistungen.",
       icon: <IconBolt />,
     },
     {
-      title: "Details klären",
+      title: "Aufträge sichern",
       description:
-        "Klären Sie Auftragsdetails mit Kunden direkt im Chat und gewinnen Sie diese für sich.",
+        "Kontaktiere interessierte Kunden direkt und sichere dir neue Aufträge ohne Zwischenschritte.",
       icon: <IconShield />,
     },
   ];
